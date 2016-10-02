@@ -23,6 +23,7 @@
 
 
         <!-- Web -->
+        <jersey.json.version>1.13</jersey.json.version>
     </properties>
 
 
@@ -72,6 +73,17 @@
                 <version>${spring.cloud.starter.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-json</artifactId>
+                <version>${jersey.json.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-servlet</artifactId>
+                <version>${jersey.json.version}</version>
             </dependency>
 
 
@@ -183,5 +195,6 @@
     <modules>
         <module>service-discovery</module>
         <module>authorization-server</module>
+        <module>api-gateway</module>
     </modules>
 </project>

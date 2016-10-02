@@ -7,7 +7,7 @@ spring:
   thymeleaf:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
     prefix: classpath:/authorization-server/templates/    # Trailing / mandatory
-                             # Template location for this application only
+                             # Template location for this infra only
 
 # Map the error path to error template
 error:
@@ -24,5 +24,5 @@ server:
   port: 2222   # HTTP (Tomcat) port
   #todo do not use hardcoded ports?
 
-#application:
+#infra:
 #  directorypath: c://Test

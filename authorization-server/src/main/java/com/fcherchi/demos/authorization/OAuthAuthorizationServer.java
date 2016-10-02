@@ -18,7 +18,7 @@ public class OAuthAuthorizationServer {
     final static Logger logger = (Logger) LoggerFactory.getLogger(OAuthAuthorizationServer.class);
 
     /**
-     * Run the application using Spring Boot and an embedded servlet engine.
+     * Run the infra using Spring Boot and an embedded servlet engine.
      *
      * @param args
      *            Program arguments - ignored.
@@ -27,7 +27,7 @@ public class OAuthAuthorizationServer {
         // Tell server to look for registration-server.properties or registration-server.yml
         System.setProperty("spring.config.name", "authorization-server");
         Thread.currentThread().setName("AuthorizationServer-0");
-        logger.info("Starting Registration Server");
+        logger.info("Starting OAuth Server");
         SpringApplication.run(OAuthAuthorizationServer.class, args);
     }
 }

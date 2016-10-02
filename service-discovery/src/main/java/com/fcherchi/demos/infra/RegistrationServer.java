@@ -1,4 +1,4 @@
-package com.fcherchi.demos.application;
+package com.fcherchi.demos.infra;
 
 
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ public class RegistrationServer {
     final static Logger logger = (Logger) LoggerFactory.getLogger(RegistrationServer.class);
 
     /**
-     * Run the application using Spring Boot and an embedded servlet engine.
+     * Run the infra using Spring Boot and an embedded servlet engine.
      *
      * @param args
      *            Program arguments - ignored.
