@@ -1,4 +1,4 @@
-package com.fcherchi.demos.authorization;
+package com.fcherchi.demos.products;
 
 
 import org.slf4j.Logger;
@@ -16,6 +16,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class ProductsService {
 
     final static Logger logger = (Logger) LoggerFactory.getLogger(ProductsService.class);
+
+
+
 
     /**
      * Run the infra using Spring Boot and an embedded servlet engine.

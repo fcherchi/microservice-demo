@@ -196,5 +196,6 @@
         <module>service-discovery</module>
         <module>authorization-server</module>
         <module>api-gateway</module>
+        <module>products-service</module>
     </modules>
 </project>

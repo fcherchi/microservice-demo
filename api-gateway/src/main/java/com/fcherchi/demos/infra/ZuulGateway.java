@@ -20,7 +20,7 @@ public class ZuulGateway {
 
     public static void main(String[] args) {
 
-        System.setProperty("spring.config.name", "api-gateway");
+        System.setProperty("spring.config.name", "zuul-gateway");
         Thread.currentThread().setName("ApiGateway-0");
         logger.info("Starting Api Gateway Zuul");
         SpringApplication.run(ZuulGateway.class, args);

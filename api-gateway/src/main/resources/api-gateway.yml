@@ -6,9 +6,9 @@ spring:
 
 zuul:
   ignoredServices: "*"
-#  routes:
-#    productcomposite:
-#      path: /*/**
+routes:
+  product:
+     path: /product/**
 
 # Discovery Server Access
 eureka:
