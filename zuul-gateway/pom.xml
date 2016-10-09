@@ -8,8 +8,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>products-service</artifactId>
-    <name>Products Service</name>
+    <artifactId>zool-gateway</artifactId>
+    <name>API Gateway Zuul Demo</name>
 
 
     <dependencies>
@@ -36,21 +36,6 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
-        <!-- Hystrix -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
-        </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-boot-starter-bus-amqp</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-netflix-hystrix-amqp</artifactId>-->
-        <!--</dependency>-->
-
-
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
@@ -58,6 +43,17 @@
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-servlet</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>com.netflix.zuul</groupId>
+        <artifactId>zuul-netflix</artifactId>
+        <version>1.3.0</version>
+        </dependency>
+
+        <dependency>
+        <groupId>com.netflix.hystrix</groupId>
+        <artifactId>hystrix-javanica</artifactId>
+        <version>1.5.6</version>
         </dependency>
     </dependencies>
     <build>
@@ -79,6 +75,19 @@
 
         <!--</plugins>-->
     </build>
+
+        <!--<dependency>-->
+            <!--<groupId>com.netflix.zuul</groupId>-->
+            <!--<artifactId>zuul-netflix</artifactId>-->
+            <!--<version>1.3.0</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>com.netflix.hystrix</groupId>-->
+            <!--<artifactId>hystrix-javanica</artifactId>-->
+            <!--<version>1.5.6</version>-->
+        <!--</dependency>-->
+
 
 </project>
 

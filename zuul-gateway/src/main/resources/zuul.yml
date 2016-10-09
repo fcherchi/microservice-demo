@@ -1,0 +1,29 @@
+# Spring properties
+spring:
+  application:
+     name: zuul-gateway  # Service registers under this name
+
+#
+zuul:
+  ignoredServices: "*"
+  routes:
+    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
+      path: /products-api/**
+
+# Discovery Server Access
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+# HTTP Server
+server:
+  port: 3131 # HTTP  port
+
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO

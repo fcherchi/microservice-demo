@@ -54,20 +54,24 @@ public class ProductsBusiness {
         // the point is not breaking the flow if the optional stuff is not there
         ServiceInstance coreService = loadBalancer.choose("core-server");
 
-        //this instrumentation should be in an utility class (just a jar)
-        //we get the url to call the core service (let's imagine is a kvk caller that bring us extra info about the product)
-        String url = coreService.getUri().toString() + "/core/" + productId;
+        //could be null when offline
+        if (coreService != null) {
+
+            //this instrumentation should be in an utility class (just a jar)
+            //we get the url to call the core service (let's imagine is a kvk caller that bring us extra info about the product)
+            String url = coreService.getUri().toString() + "/core/" + productId;
 
 
-        LOGGER.debug("Get xtra info from URL: {}", url);
+            LOGGER.debug("Get xtra info from URL: {}", url);
 
-        ResponseEntity<String> resultStr = restTemplate.getForEntity(url, String.class);
+            ResponseEntity<String> resultStr = restTemplate.getForEntity(url, String.class);
 
-        //if kvk is up and running, complete information, if not leave it as null
-        if (resultStr.getStatusCode().is2xxSuccessful()) {
+            //if kvk is up and running, complete information, if not leave it as null
+            if (resultStr.getStatusCode().is2xxSuccessful()) {
 
-            LOGGER.debug("Core addition body: {}", resultStr.getBody());
-            product.setExtra(resultStr.getBody());
+                LOGGER.debug("Core addition body: {}", resultStr.getBody());
+                product.setExtra(resultStr.getBody());
+            }
         }
 
 

@@ -1,21 +1,17 @@
 # Spring properties
 spring:
   application:
-     name: zuul-gateway  # Service registers under this name
+     name: products-service  # Service registers under this name
 
-
-zuul:
-  ignoredServices: "*"
-routes:
-  product:
-     path: /product/**
 
 # Discovery Server Access
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
 
 # HTTP Server
 server:
-  port: 3333 # HTTP  port
+  port: 6666   # HTTP (Tomcat) port
