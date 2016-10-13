@@ -3,6 +3,7 @@ package com.fcherchi.demos.products.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fcherchi.demos.products.model.Product;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,13 @@ import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.Date;
 
 /**
@@ -40,8 +43,13 @@ public class ProductsBusiness {
     }
 
 
+
     @RequestMapping("/product/{productId}")
-    public ResponseEntity<Product> getProduct(@PathVariable int productId) {
+    public ResponseEntity<Product> getProduct(@PathVariable int productId,
+                                              @RequestHeader(value="Authorization") String authorizationHeader,
+                                              Principal currentUser) {
+
+        LOGGER.debug("User {}", currentUser.getName());
 
 
         //this service (Product) which has a public API is consuming a core service (core)

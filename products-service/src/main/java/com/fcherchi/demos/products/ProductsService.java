@@ -6,11 +6,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 
 /**
  * Created by Fernando Cherchi on 02/10/16.
  */
+
+@EnableOAuth2Client
 @SpringBootApplication
 @EnableEurekaClient
 public class ProductsService {
