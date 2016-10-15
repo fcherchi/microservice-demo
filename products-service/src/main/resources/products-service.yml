@@ -26,5 +26,9 @@ server:
   port: 4444   # HTTP (Tomcat) port
   #todo do not use hardcoded ports?
 
+security:
+  user:
+    password: asfasdf
+
 #infra:
 #  directorypath: c://Test
