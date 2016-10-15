@@ -6,7 +6,7 @@ spring:
     enabled: false           # Ignore Eureka dashboard FreeMarker templates
   thymeleaf:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
-    prefix: classpath:/authorization-server/templates/    # Trailing / mandatory
+    prefix: classpath:/authorization-server/static/    # Trailing / mandatory
                              # Template location for this infra only
 
 # Map the error path to error template
@@ -24,7 +24,7 @@ eureka:
 # HTTP Server
 server:
   port: 8080   # HTTP (Tomcat) port
-  #todo do not use hardcoded ports?
+
 
 security:
   oauth2:
