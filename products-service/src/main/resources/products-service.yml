@@ -2,12 +2,6 @@
 spring:
   application:
      name: products-service  # Service registers under this name
-  freemarker:
-    enabled: false           # Ignore Eureka dashboard FreeMarker templates
-  thymeleaf:
-    cache: false             # Allow Thymeleaf templates to be reloaded at runtime
-    prefix: classpath:/products-service/templates/    # Trailing / mandatory
-                             # Template location for this infra only
 
 # Map the error path to error template
 error:
@@ -28,7 +22,7 @@ server:
 
 security:
   user:
-    password: asfasdf
+    password: secret
 
 #infra:
 #  directorypath: c://Test

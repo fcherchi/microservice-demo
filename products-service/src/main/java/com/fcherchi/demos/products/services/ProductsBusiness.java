@@ -1,7 +1,5 @@
 package com.fcherchi.demos.products.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
 import com.fcherchi.demos.products.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.io.IOException;
-import java.util.Date;
 
 /**
  * Created by Fernando Cherchi on 07/10/16.
@@ -34,13 +29,8 @@ public class ProductsBusiness {
     private RestTemplate restTemplate = new RestTemplate();
 
 
-    @RequestMapping("/")
-    public String getProduct() {
-        return "{\"timestamp\":\"" + new Date() + "\",\"content\":\"Hello from ProductAPi\"}";
-    }
 
-
-    @RequestMapping("/product/{productId}")
+    @RequestMapping("/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable int productId) {
 
 

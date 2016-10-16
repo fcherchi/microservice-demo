@@ -4,11 +4,12 @@ spring:
      name: zuul-gateway  # Service registers under this name
 
 #
-zuul:
-  ignoredServices: "*"
-  routes:
-    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
-      path: /products-api/**
+#zuul:
+#  ignoredServices: "*"
+#  routes:
+#    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
+#      prefix: /api
+#      path: /products/**
 
 # Discovery Server Access
 eureka:
@@ -22,9 +23,13 @@ eureka:
 server:
   port: 3131 # HTTP  port
 
+
 security:
   user:
-    password: password
+    password: welcome
+#    oauth2:
+#        resource:
+#            userInfoUri: http://localhost:8080/auth/user
 
 logging:
   level:

@@ -4,10 +4,10 @@ spring:
      name: authorization-server  # Service registers under this name
   freemarker:
     enabled: false           # Ignore Eureka dashboard FreeMarker templates
-  thymeleaf:
-    cache: false             # Allow Thymeleaf templates to be reloaded at runtime
-    prefix: classpath:/authorization-server/templates/    # Trailing / mandatory
-                             # Template location for this infra only
+#  thymeleaf:
+#    cache: false             # Allow Thymeleaf templates to be reloaded at runtime
+#    prefix: classpath:/authorization-server/templates/    # Trailing / mandatory
+#                             # Template location for this infra only
 
 # Map the error path to error template
 error:
@@ -23,8 +23,21 @@ eureka:
 
 # HTTP Server
 server:
-  port: 2222   # HTTP (Tomcat) port
-  #todo do not use hardcoded ports?
+  port: 8080   # HTTP (Tomcat) port
+  contextPath: /uaa
+
+
+security:
+  oauth2:
+    client:
+      clientId: acme
+      clientSecret: acmesecret
+      authorized-grant-types: authorization_code,refresh_token,password
+      client.scope: openid
+  user:
+    password: password
+
+
 
 #infra:
 #  directorypath: c://Test
