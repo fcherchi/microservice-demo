@@ -27,11 +27,12 @@ server:
 security:
   user:
     password: welcome
-#    oauth2:
-#        resource:
-#            userInfoUri: http://localhost:8080/auth/user
+oauth2:
+  resource:
+    userInfoUri: http://localhost:8080/uaa/user
 
 logging:
   level:
     ROOT: INFO
     org.springframework.web: INFO
+    org.springframework.security: DEBUG

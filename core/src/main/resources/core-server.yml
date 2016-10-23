@@ -21,7 +21,11 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
 
+
+security:
+  user:
+    password: welcome
+
 # HTTP Server
 server:
   port: 5555   # HTTP (Tomcat) port
-  #todo do not use hardcoded ports?

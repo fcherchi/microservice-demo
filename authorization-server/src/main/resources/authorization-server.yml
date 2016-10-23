@@ -35,7 +35,7 @@ security:
       authorized-grant-types: authorization_code,refresh_token,password
       client.scope: openid
   user:
-    password: password
+    password: welcome
 
 
 

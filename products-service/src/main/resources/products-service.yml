@@ -18,11 +18,10 @@ eureka:
 # HTTP Server
 server:
   port: 4444   # HTTP (Tomcat) port
-  #todo do not use hardcoded ports?
 
 security:
   user:
-    password: secret
+    password: welcome
 
 #infra:
 #  directorypath: c://Test

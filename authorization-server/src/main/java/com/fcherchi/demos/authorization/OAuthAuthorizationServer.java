@@ -35,10 +35,6 @@ public class OAuthAuthorizationServer {
         SpringApplication.run(OAuthAuthorizationServer.class, args);
     }
 
-//    @RequestMapping("/user")
-//    public Principal user(Principal user) {
-//        return user;
-//    }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String hi(Principal p) {
