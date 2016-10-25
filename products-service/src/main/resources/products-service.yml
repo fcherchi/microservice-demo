@@ -20,8 +20,11 @@ server:
   port: 4444   # HTTP (Tomcat) port
 
 security:
-  user:
-    password: welcome
+#  user:
+#    password: welcome
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:8080/uaa/user
 
 #infra:
 #  directorypath: c://Test

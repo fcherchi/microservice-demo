@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
  */
 
 
-@RestController
+//@RestController
 public class ProductsBusiness {
 
     private static Logger LOGGER = LoggerFactory.getLogger(ProductsBusiness.class);
