@@ -5,10 +5,6 @@ angular.module('hello', [ 'ngRoute' ])
             templateUrl : 'home.html',
             controller : 'home',
             controllerAs: 'controller'
-        }).when('/login', {
-            templateUrl : 'login.html',
-            controller : 'navigation',
-            controllerAs: 'controller'
         }).otherwise('/');
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -55,16 +51,4 @@ angular.module('hello', [ 'ngRoute' ])
                     $location.path("/");
                 });
             }
-
-            self.login = function() {
-                authenticate(self.credentials, function() {
-                    if ($rootScope.authenticated) {
-                        $location.path("/");
-                        self.error = false;
-                    } else {
-                        $location.path("/login");
-                        self.error = true;
-                    }
-                });
-            };
         });

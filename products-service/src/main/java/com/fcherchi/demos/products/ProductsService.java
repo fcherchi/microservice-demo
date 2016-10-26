@@ -9,10 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+//import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 
 /**
@@ -41,8 +45,19 @@ public class ProductsService {
         SpringApplication.run(ProductsService.class, args);
     }
 
+    @RequestMapping("/")
+    public String home() {
+        return "Hello World";
+    }
+
+
+
     @RequestMapping("/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable int productId) {
+
+//                                                    ,
+//                                              @RequestHeader(value="Authorization") String authorizationHeader,
+//                                              Principal currentUser) {
         Product product = new Product();
         product.setName("Product " + productId);
 

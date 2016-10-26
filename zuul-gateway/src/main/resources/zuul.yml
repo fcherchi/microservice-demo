@@ -3,13 +3,16 @@ spring:
   application:
      name: zuul-gateway  # Service registers under this name
 
-#
-#zuul:
-#  ignoredServices: "*"
-#  routes:
-#    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
-#      prefix: /api
-#      path: /products/**
+zuul:
+  ignoredServices: "*"
+  routes:
+    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
+      path: /products/**
+      url: http://localhost:4444
+    user:
+      path: /user/**
+      url: http://localhost:8080/uaa/user
+
 
 # Discovery Server Access
 eureka:
@@ -27,9 +30,16 @@ server:
 security:
   user:
     password: welcome
-oauth2:
-  resource:
-    userInfoUri: http://localhost:8080/uaa/user
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8080/uaa/oauth/token
+      userAuthorizationUri: http://localhost:8080/uaa/oauth/authorize
+      clientId: acme
+      clientSecret: acmesecret
+      scope: read,write
+      auto-approve-scopes: '.*'
+    resource:
+      userInfoUri: http://localhost:8080/uaa/user
 
 logging:
   level:
