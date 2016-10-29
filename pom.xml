@@ -229,7 +229,6 @@
     </build>
     <modules>
         <module>service-discovery</module>
-        <module>authorization-server</module>
         <module>zuul-gateway</module>
         <module>core</module>
         <module>products-service</module>

@@ -3,43 +3,54 @@ spring:
   application:
      name: zuul-gateway  # Service registers under this name
 
-zuul:
-  ignoredServices: "*"
-  routes:
-    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
-      path: /products/**
-      url: http://localhost:4444
-    user:
-      path: /user/**
-      url: http://localhost:8080/uaa/user
+#zuul:
+#  ignoredServices: "*"
+#  routes:
+#    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
+#      path: /products/**
+#      url: http://localhost:4444
+#    user:
+#      path: /user/**
+#      url: http://localhost:8080/uaa/user
 
 
-# Discovery Server Access
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+
 
 # HTTP Server
 server:
-  port: 3131 # HTTP  port
+  port: 8080 # HTTP  port
 
+
+facebook:
+  client:
+    clientId: 233668646673605
+    clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    #resource offered by facebook and consumed by our client app
+    userInfoUri: https://graph.facebook.com/me
+
+github:
+  client:
+    clientId: bd1c0a783ccdd1c9b9e4
+    clientSecret: 1a9030fbca47a5b2c28e92f19050bb77824b5ad1
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
 
 security:
-  user:
-    password: welcome
   oauth2:
     client:
-      accessTokenUri: http://localhost:8080/uaa/oauth/token
-      userAuthorizationUri: http://localhost:8080/uaa/oauth/authorize
-      clientId: acme
-      clientSecret: acmesecret
+      client-id: acme
+      client-secret: acmesecret
       scope: read,write
       auto-approve-scopes: '.*'
-    resource:
-      userInfoUri: http://localhost:8080/uaa/user
 
 logging:
   level:

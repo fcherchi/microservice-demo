@@ -18,18 +18,17 @@ eureka:
 # HTTP Server
 server:
   port: 4444   # HTTP (Tomcat) port
+  context-path: /products
 
 security:
-  user:
-    password: welcome
   oauth2:
-    resource:
-      userInfoUri: http://localhost:8080/uaa/user
     client:
-          client-id: acme
-          client-secret: acmesecret
-          scope: read,write
-          auto-approve-scopes: '.*'
+      client-id: acme
+      client-secret: acmesecret
+      access-token-uri: http://localhost:8080/oauth/token
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+    resource:
+      user-info-uri: http://localhost:8080/me
 
 
 #infra:
