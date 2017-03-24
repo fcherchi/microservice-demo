@@ -41,8 +41,8 @@ public class CustomPreZuulFilter extends ZuulFilter {
             }
 
         } catch (final UnsupportedEncodingException e) {
-            logger.error("Error occured in pre filter", e);
-        }
+            logger.error("Error occurred in pre filter", e);
+         }
 
         //
 

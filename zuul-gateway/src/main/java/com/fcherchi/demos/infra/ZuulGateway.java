@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.context.annotation.Bean;
 
 /**
  * Created by Fernando Cherchi on 02/10/16.
@@ -44,18 +42,18 @@ public class ZuulGateway extends SpringBootServletInitializer {
     }
 
 
-    @Bean
-    //this maps to the yml (now not security.oauth2 anymore)
-    @ConfigurationProperties("facebook")
-    public ClientResources facebook() {
-        return new ClientResources();
-    }
-
-    @Bean
-    @ConfigurationProperties("github")
-    public ClientResources github() {
-        return new ClientResources();
-    }
+//    @Bean
+//    //this maps to the yml (now not security.oauth2 anymore)
+//    @ConfigurationProperties("facebook")
+//    public ClientResources facebook() {
+//        return new ClientResources();
+//    }
+//
+//    @Bean
+//    @ConfigurationProperties("github")
+//    public ClientResources github() {
+//        return new ClientResources();
+//    }
 
 
     //this allows the redirection from our app to facebook (it is handled inside @EnableOAuth2Client

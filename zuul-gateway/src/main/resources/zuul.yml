@@ -19,6 +19,9 @@ zuul:
     oauth:
       path: /oauth/**
       url: http://localhost:8081/spring-security-oauth-server/oauth
+    products-service: #this should match the spring.application.name of the spring boot app (defined in its own yml)
+      path: /products/**
+      url: http://localhost:4444/**
 
 
 # HTTP Server
@@ -58,16 +61,16 @@ eureka:
 #    userInfoUri: https://api.github.com/user
 
 #zuul acts as a client for the oauth server (it is the only oauth client). Products Services is the Resource
-#security:
-#  oauth2:
-#    client:
-#      client-id: zuulclient
-#      client-secret: zuulsecret
-#      scope: read,write
-#      auto-approve-scopes: '.*'
-#      authorized-grant-types: authorization_code,refresh_token,password
-#      userAuthorizationUri: http://localhost:8081/spring-security-oauth-server/oauth
-#      accessTokenUri: http://localhost:8081/spring-security-oauth-server/access_token
+security:
+  oauth2:
+    client:
+      client-id: zuulclient
+      client-secret: zuulsecret
+      scope: read,write
+      auto-approve-scopes: '.*'
+      authorized-grant-types: authorization_code,refresh_token,password
+      userAuthorizationUri: http://localhost:8081/spring-security-oauth-server/oauth
+      accessTokenUri: http://localhost:8081/spring-security-oauth-server/access_token
 #  user:
 #    password: password
 

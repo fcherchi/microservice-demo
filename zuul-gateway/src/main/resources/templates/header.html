@@ -23,8 +23,8 @@ var app = angular.module('myApp', ["ngResource","ngRoute","ngCookies","angular-j
 
 app.controller('mainCtrl', function($scope,$resource,$http,$httpParamSerializer,$cookies,jwtHelper) {
 
-  //client id should be zuul client here ?
-    $scope.loginData = {grant_type:"password", username: "", password: "", client_id: "fooClientIdPassword"};
+  //client id should be zuul client here
+    $scope.loginData = {grant_type:"password", username: "", password: "", client_id: "zuulclient"};
     $scope.refreshData = {grant_type:"refresh_token"};
         
     var isLoginPage = window.location.href.indexOf("login") != -1;
@@ -35,7 +35,7 @@ app.controller('mainCtrl', function($scope,$resource,$http,$httpParamSerializer,
     }else{
         if($cookies.get("access_token")){
             $http.defaults.headers.common.Authorization= 'Bearer ' + $cookies.get("access_token");
-            getOrganization(); //this is actually business, here we should make the redirect to the destination url
+        //    getOrganization(); //this is actually business, here we should make the redirect to the destination url
         }else{
         	obtainAccessToken($scope.refreshData);
         }
@@ -51,6 +51,7 @@ app.controller('mainCtrl', function($scope,$resource,$http,$httpParamSerializer,
     }
     
     function obtainAccessToken(params){
+        console.log("OBTTTTTAINING AT");
         var req = {
             method: 'POST',
             url: "oauth/token",
@@ -74,7 +75,7 @@ app.controller('mainCtrl', function($scope,$resource,$http,$httpParamSerializer,
     	var token = $cookies.get("access_token");
     	var payload = jwtHelper.decodeToken(token);
     	console.log(payload);
-    	$scope.organization = payload.organization;
+    //	$scope.organization = payload.organization;
     	
     	/* $http.get("http://localhost:8082/spring-security-oauth-resource/users/extra")
         .then(function(response) {

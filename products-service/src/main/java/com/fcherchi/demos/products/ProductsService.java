@@ -47,6 +47,7 @@ public class ProductsService {
 
     @RequestMapping("/")
     public String home(Principal user) {
+
         return "Hello " + user.getName() + " From Products Services";
     }
 
